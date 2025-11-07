@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
 import { SyncLoader } from "react-spinners";
-import type Tema from "../../../models/Tema";
+import type Categoria from "../../../models/Categoria";
 import { buscar } from "../../../services/Service";
-import CardTema from "../cardtema/CardTema";
-import ModalCategoria from "../modalcategoria/ModalCategoria";
+import CardCategoria from "../cardCategoria/CardCategoria";
+import ModalCategoria from "../modalCategoria/ModalCategoria";
 
-export default function ListaTemas() {
-  const [temas, setTemas] = useState<Tema[]>([]);
+export default function ListaCategorias() {
+  const [categorias, setCategorias] = useState<Categoria[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
   async function carregarCategorias() {
     try {
       setIsLoading(true);
-      await buscar<Tema[]>("/categorias", setTemas);
+      await buscar<Categoria[]>("/categorias", setCategorias);
     } finally {
       setIsLoading(false);
     }
@@ -36,11 +36,11 @@ export default function ListaTemas() {
         </div>
       )}
 
-      {!isLoading && temas.length === 0 && <p>Nenhuma categoria cadastrada.</p>}
+      {!isLoading && categorias.length === 0 && <p>Nenhuma categoria cadastrada.</p>}
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {temas.map((tema) => (
-          <CardTema key={tema.id} tema={tema} />
+        {categorias.map((categoria) => (
+          <CardCategoria key={categoria.id} categoria={categoria} />
         ))}
       </div>
     </div>

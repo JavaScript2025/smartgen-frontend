@@ -1,4 +1,4 @@
-import type Postagem from "./Postagem";
+import type Categoria from "./Empresa";
 
 export default interface Usuario {
   id: number;
@@ -8,5 +8,5 @@ export default interface Usuario {
   foto: string;
   altura: number;
   peso: number;
-  postagem?: Postagem[] | null; // empresas criadas por esse usuário (opcional)
+  empresa?: Categoria[] | null; // empresas criadas por esse usuário (opcional)
 }

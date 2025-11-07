@@ -1,8 +1,8 @@
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
-import FormPostagem from "../formpostagem/FormPostagem";
+import FormEmpresa from "../formEmpresa/FormEmpresa";
 
-export default function ModalPostagem() {
+export default function ModalEmpresa() {
   return (
     <Popup
       trigger={
@@ -14,7 +14,7 @@ export default function ModalPostagem() {
       contentStyle={{ borderRadius: "1rem", paddingBottom: "2rem" }}
     >
       <div className="p-4">
-        <FormPostagem />
+        <FormEmpresa />
       </div>
     </Popup>
   );

@@ -1,20 +1,23 @@
 import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
-import type Tema from "../../../models/Tema";
+import type Categoria from "../../../models/Categoria";
 import { atualizar, buscar, cadastrar } from "../../../services/Service";
 import { ToastAlerta } from "../../../utils/ToastAlerta";
 
-function FormTema() {
+function FormCategoria() {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
 
   const [isLoading, setIsLoading] = useState(false);
-  const [tema, setTema] = useState<Tema>({ id: 0, tipo_servico: "" });
+  const [categoria, setCategoria] = useState<Categoria>({
+    id: 0,
+    tipo_servico: "",
+  });
 
   async function carregarCategoria() {
     if (!id) return;
-    await buscar<Tema>(`/categorias/${id}`, setTema);
+    await buscar<Categoria>(`/categorias/${id}`, setCategoria);
   }
 
   useEffect(() => {
@@ -22,8 +25,8 @@ function FormTema() {
   }, [id]);
 
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
-    setTema({
-      ...tema,
+    setCategoria({
+      ...categoria,
       [e.target.name]: e.target.value,
     });
   }
@@ -33,10 +36,18 @@ function FormTema() {
     setIsLoading(true);
     try {
       if (id) {
-        await atualizar<Tema, Tema>("/categorias", tema, setTema);
+        await atualizar<Categoria, Categoria>(
+          "/categorias",
+          categoria,
+          setCategoria
+        );
         ToastAlerta("Categoria atualizada com sucesso!", "sucesso");
       } else {
-        await cadastrar<Tema, Omit<Tema, "id">>("/categorias", { tipo_servico: tema.tipo_servico }, setTema);
+        await cadastrar<Categoria, Omit<Categoria, "id">>(
+          "/categorias",
+          { tipo_servico: categoria.tipo_servico },
+          setCategoria
+        );
         ToastAlerta("Categoria cadastrada com sucesso!", "sucesso");
       }
       navigate("/categorias");
@@ -49,13 +60,15 @@ function FormTema() {
 
   return (
     <div className="container mx-auto px-4 py-6">
-      <h1 className="text-2xl font-bold mb-4">{id ? "Editar Categoria" : "Cadastrar Categoria"}</h1>
+      <h1 className="text-2xl font-bold mb-4">
+        {id ? "Editar Categoria" : "Cadastrar Categoria"}
+      </h1>
 
       <form className="flex flex-col gap-4" onSubmit={salvar}>
         <input
           type="text"
           name="tipo_servico"
-          value={tema.tipo_servico}
+          value={categoria.tipo_servico}
           onChange={atualizarEstado}
           placeholder="Tipo de serviço (ex: Personal, Pilates...)"
           className="border p-2 rounded"
@@ -67,11 +80,17 @@ function FormTema() {
           className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
           disabled={isLoading}
         >
-          {isLoading ? <ClipLoader size={20} /> : id ? "Atualizar" : "Cadastrar"}
+          {isLoading ? (
+            <ClipLoader size={20} />
+          ) : id ? (
+            "Atualizar"
+          ) : (
+            "Cadastrar"
+          )}
         </button>
       </form>
     </div>
   );
 }
 
-export default FormTema;
+export default FormCategoria;

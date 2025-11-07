@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import type Tema from "../../../models/Tema";
+import type Categoria from "../../../models/Categoria";
 import { buscar, deletar } from "../../../services/Service";
 import { ToastAlerta } from "../../../utils/ToastAlerta";
 
-function DeletarTema() {
+function DeletarCategoria() {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
 
-  const [tema, setTema] = useState<Tema | null>(null);
+  const [categoria, setCategoria] = useState<Categoria | null>(null);
 
   async function carregarCategoria() {
     if (!id) return;
-    await buscar<Tema>(`/categorias/${id}`, setTema);
+    await buscar<Categoria>(`/categorias/${id}`, setCategoria);
   }
 
   useEffect(() => {
@@ -39,14 +39,22 @@ function DeletarTema() {
       <p>Você tem certeza que deseja deletar a categoria abaixo?</p>
 
       <div className="my-4 border rounded p-4">
-        <p><strong>Tipo de serviço:</strong> {tema?.tipo_servico}</p>
+        <p>
+          <strong>Tipo de serviço:</strong> {categoria?.tipo_servico}
+        </p>
       </div>
 
       <div className="flex gap-4">
-        <button onClick={apagar} className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">
+        <button
+          onClick={apagar}
+          className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
+        >
           Deletar
         </button>
-        <button onClick={cancelar} className="bg-gray-300 px-4 py-2 rounded hover:bg-gray-400">
+        <button
+          onClick={cancelar}
+          className="bg-gray-300 px-4 py-2 rounded hover:bg-gray-400"
+        >
           Cancelar
         </button>
       </div>
@@ -54,4 +62,4 @@ function DeletarTema() {
   );
 }
 
-export default DeletarTema;
+export default DeletarCategoria;

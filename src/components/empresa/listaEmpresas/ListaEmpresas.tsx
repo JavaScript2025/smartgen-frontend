@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { SyncLoader } from "react-spinners";
-import type Postagem from "../../../models/Postagem";
+import type Empresa from "../../../models/Empresa";
 import { buscar } from "../../../services/Service";
-import CardPostagem from "../cardpostagem/CardPostagem";
-import ModalPostagem from "../modalpostagem/ModalPostagem";
+import CardEmpresa from "../cardEmpresa/CardEmpresa";
+import ModalEmpresa from "../modalEmpresa/ModalEmpresa";
 
 type Props = {
   showNewButton?: boolean;
@@ -15,12 +15,12 @@ export default function ListaPostagens({
   showActions = true,
 }: Props) {
   const [isLoading, setIsLoading] = useState(false);
-  const [postagens, setPostagens] = useState<Postagem[]>([]);
+  const [postagens, setPostagens] = useState<Empresa[]>([]);
 
   async function carregarEmpresas() {
     try {
       setIsLoading(true);
-      await buscar<Postagem[]>("/empresas", setPostagens);
+      await buscar<Empresa[]>("/empresas", setPostagens);
     } finally {
       setIsLoading(false);
     }
@@ -35,7 +35,7 @@ export default function ListaPostagens({
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-gray-500 text-2xl font-bold">Empresas</h2>
-          {showNewButton && <ModalPostagem />} {/* <- só mostra se true */}
+          {showNewButton && <ModalEmpresa />} {/* <- só mostra se true */}
         </div>
 
         {isLoading && (
@@ -49,10 +49,10 @@ export default function ListaPostagens({
         )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {postagens.map((postagem) => (
-            <CardPostagem
-              key={postagem.id}
-              postagem={postagem}
+          {postagens.map((empresa) => (
+            <CardEmpresa
+              key={empresa.id}
+              empresa={empresa}
               showActions={showActions}
             />
           ))}

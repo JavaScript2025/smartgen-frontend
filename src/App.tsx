@@ -3,13 +3,13 @@ import { ToastContainer } from "react-toastify";
 import Footer from "./components/footer/Footer";
 import Navbar from "./components/navbar/Navbar";
 
-import DeletarPostagem from "./components/postagem/deletarpostagem/DeletarPostagem";
-import FormPostagem from "./components/postagem/formpostagem/FormPostagem";
-import ListaPostagens from "./components/postagem/listapostagens/ListaPostagens";
+import DeletarEmpresa from "./components/empresa/deletarEmpresa/DeletarEmpresa";
+import FormEmpresa from "./components/empresa/formEmpresa/FormEmpresa";
+import ListaPostagens from "./components/empresa/listaEmpresas/ListaEmpresas";
 
-import DeletarTema from "./components/tema/deletartema/DeletarTema";
-import FormTema from "./components/tema/formtema/FormTema";
-import ListaTemas from "./components/tema/listatemas/ListaTemas";
+import DeletarCategoria from "./components/categoria/deletarCategoria/DeletarCategoria";
+import FormCategoria from "./components/categoria/formCategoria/FormCategoria";
+import ListaCategorias from "./components/categoria/listaCategorias/ListaCategorias";
 
 import Home from "./pages/home/Home";
 
@@ -26,17 +26,20 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
 
-            {/* Categorias (Tema) */}
-            <Route path="/categorias" element={<ListaTemas />} />
-            <Route path="/cadastrarCategoria" element={<FormTema />} />
-            <Route path="/editarCategoria/:id" element={<FormTema />} />
-            <Route path="/deletarCategoria/:id" element={<DeletarTema />} />
+            {/* Categorias (Categoria) */}
+            <Route path="/categorias" element={<ListaCategorias />} />
+            <Route path="/cadastrarCategoria" element={<FormCategoria />} />
+            <Route path="/editarCategoria/:id" element={<FormCategoria />} />
+            <Route
+              path="/deletarCategoria/:id"
+              element={<DeletarCategoria />}
+            />
 
-            {/* Empresas (Postagem) */}
+            {/* Empresas (Empresa) */}
             <Route path="/empresas" element={<ListaPostagens />} />
-            <Route path="/cadastrarEmpresa" element={<FormPostagem />} />
-            <Route path="/editarEmpresa/:id" element={<FormPostagem />} />
-            <Route path="/deletarEmpresa/:id" element={<DeletarPostagem />} />
+            <Route path="/cadastrarEmpresa" element={<FormEmpresa />} />
+            <Route path="/editarEmpresa/:id" element={<FormEmpresa />} />
+            <Route path="/deletarEmpresa/:id" element={<DeletarEmpresa />} />
           </Routes>
         </div>
         <Footer />

@@ -1,22 +1,25 @@
 import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
-import type Postagem from "../../../models/Postagem";
-import type Tema from "../../../models/Tema";
+import type Empresa from "../../../models/Empresa";
+import type Categoria from "../../../models/Categoria";
 import { atualizar, buscar, cadastrar } from "../../../services/Service";
 import { ToastAlerta } from "../../../utils/ToastAlerta";
 
-function FormPostagem() {
+function FormEmpresa() {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
 
   const [isLoading, setIsLoading] = useState(false);
   const [carregandoCategoria, setCarregandoCategoria] = useState(false);
 
-  const [categorias, setCategorias] = useState<Tema[]>([]);
-  const [categoria, setCategoria] = useState<Tema>({ id: 0, tipo_servico: "" });
+  const [categorias, setCategorias] = useState<Categoria[]>([]);
+  const [categoria, setCategoria] = useState<Categoria>({
+    id: 0,
+    tipo_servico: "",
+  });
 
-  const [empresa, setEmpresa] = useState<Postagem>({
+  const [empresa, setEmpresa] = useState<Empresa>({
     id: 0,
     nome_empresa: "",
     localizacao: "",
@@ -27,14 +30,14 @@ function FormPostagem() {
   });
 
   async function carregarEmpresasPorId(idNum: number) {
-    await buscar<Postagem>(`/empresas/${idNum}`, setEmpresa);
+    await buscar<Empresa>(`/empresas/${idNum}`, setEmpresa);
     if (empresa.categoria) setCategoria(empresa.categoria);
   }
 
   async function carregarCategorias() {
     setCarregandoCategoria(true);
     try {
-      await buscar<Tema[]>("/categorias", setCategorias);
+      await buscar<Categoria[]>("/categorias", setCategorias);
     } finally {
       setCarregandoCategoria(false);
     }
@@ -45,7 +48,7 @@ function FormPostagem() {
     if (id) {
       void carregarEmpresasPorId(Number(id));
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
@@ -75,10 +78,18 @@ function FormPostagem() {
       }
 
       if (id) {
-        await atualizar<Postagem, Postagem>("/empresas", { ...empresa }, setEmpresa);
+        await atualizar<Empresa, Empresa>(
+          "/empresas",
+          { ...empresa },
+          setEmpresa
+        );
         ToastAlerta("Empresa atualizada com sucesso!", "sucesso");
       } else {
-        await cadastrar<Postagem, Postagem>("/empresas", { ...empresa }, setEmpresa);
+        await cadastrar<Empresa, Empresa>(
+          "/empresas",
+          { ...empresa },
+          setEmpresa
+        );
         ToastAlerta("Empresa cadastrada com sucesso!", "sucesso");
       }
 
@@ -92,7 +103,9 @@ function FormPostagem() {
 
   return (
     <div className="container mx-auto px-4 py-6">
-      <h1 className="text-2xl font-bold mb-4">{id ? "Editar Empresa" : "Cadastrar Empresa"}</h1>
+      <h1 className="text-2xl font-bold mb-4">
+        {id ? "Editar Empresa" : "Cadastrar Empresa"}
+      </h1>
 
       <form className="flex flex-col gap-4" onSubmit={salvar}>
         <input
@@ -144,7 +157,9 @@ function FormPostagem() {
           disabled={carregandoCategoria}
         >
           <option value={0} disabled>
-            {carregandoCategoria ? "Carregando categorias..." : "Selecione uma categoria"}
+            {carregandoCategoria
+              ? "Carregando categorias..."
+              : "Selecione uma categoria"}
           </option>
           {categorias.map((cat) => (
             <option key={cat.id} value={cat.id}>
@@ -158,11 +173,17 @@ function FormPostagem() {
           className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
           disabled={isLoading || carregandoCategoria}
         >
-          {isLoading ? <ClipLoader size={20} /> : id ? "Atualizar" : "Cadastrar"}
+          {isLoading ? (
+            <ClipLoader size={20} />
+          ) : id ? (
+            "Atualizar"
+          ) : (
+            "Cadastrar"
+          )}
         </button>
       </form>
     </div>
   );
 }
 
-export default FormPostagem;
+export default FormEmpresa;

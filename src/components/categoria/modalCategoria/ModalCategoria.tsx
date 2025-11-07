@@ -1,6 +1,6 @@
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
-import FormTema from "../formtema/FormTema";
+import FormCategoria from "../formCategoria/FormCategoria";
 
 export default function ModalCategoria() {
   return (
@@ -14,7 +14,7 @@ export default function ModalCategoria() {
       contentStyle={{ borderRadius: "1rem", paddingBottom: "2rem" }}
     >
       <div className="p-4">
-        <FormTema />
+        <FormCategoria />
       </div>
     </Popup>
   );

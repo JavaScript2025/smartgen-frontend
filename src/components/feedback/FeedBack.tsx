@@ -100,8 +100,8 @@ function FeedBack() {
       <div className="container mx-auto flex flex-col gap-6">
         <div className="flex flex-col md:flex-row gap-4">
           {/* Bloco do título */}
-          <div className="bg-blue-300 rounded-2xl px-6 py-4 md:ml-8 md:h-[250px] flex items-end">
-            <h2 className="w-52 text-3xl font-semibold">
+          <div className="bg-blue-400 rounded-2xl px-6 py-4 md:ml-8 md:h-[250px] flex items-end">
+            <h2 className="w-52 text-3xl text-blue-50 font-semibold">
               O que falam sobre nós
             </h2>
           </div>

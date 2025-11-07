@@ -1,6 +1,6 @@
 import CardComoFunciona from "../../components/comofunciona/CardComoFunciona";
 import FeedBack from "../../components/feedback/FeedBack";
-import CarrosselPostagens from "../../components/empresa/carrossel/CarrosselPostagens";
+import CarrosselPostagens from "../../components/empresa/carrossel/CarrosselEmpresas";
 import logo from "../../utils/imgs/logo/logo.svg";
 // import IMCCalculator from "../../components/imc/IMCCalculator";
 import ModalImc from "../../components/imc/modalImc/ModalImc";

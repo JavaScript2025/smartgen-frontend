@@ -52,6 +52,7 @@ function CardComoFunciona() {
                   </h3>
                   <p>
                     Com o plano ativo, é só acessar o app SmartGen e escolher
+                    Com o plano ativo, é só acessar o app SmartGen e escolher
                     entre as milhares de opções de academias e serviços de
                     bem-estar.
                   </p>

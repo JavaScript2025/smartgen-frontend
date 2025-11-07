@@ -10,6 +10,7 @@ function Navbar() {
         <nav className="flex gap-6 text-gray-500">
           <Link to="/empresas" className="hover:underline">Empresas</Link>
           <Link to="/categorias" className="hover:underline">Categorias</Link>
+          <Link to="/dev" className="hover:underline">Desenvolvedores</Link>
         </nav>
       </div>
     </div>

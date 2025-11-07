@@ -14,6 +14,7 @@ import ListaCategorias from "./components/categoria/listaCategorias/ListaCategor
 import Home from "./pages/home/Home";
 
 import "react-toastify/dist/ReactToastify.css";
+import Dev from "./pages/dev/Dev";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
             <Route path="/cadastrarEmpresa" element={<FormEmpresa />} />
             <Route path="/editarEmpresa/:id" element={<FormEmpresa />} />
             <Route path="/deletarEmpresa/:id" element={<DeletarEmpresa />} />
+            <Route path="/dev" element={<Dev />} />
           </Routes>
         </div>
         <Footer />

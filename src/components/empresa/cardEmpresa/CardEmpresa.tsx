@@ -50,7 +50,7 @@ export default function CardEmpresa({
             <div className="flex">
               <Link
                 to={`/editarEmpresa/${empresa.id}`}
-                className="text-white bg-indigo-400 hover:bg-indigo-700 w-full flex items-center justify-center"
+                className="text-white bg-blue-500 hover:bg-blue-700 w-full flex items-center justify-center py-2"
               >
                 <button>Editar</button>
               </Link>

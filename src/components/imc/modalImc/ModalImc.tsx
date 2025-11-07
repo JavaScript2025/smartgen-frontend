@@ -6,7 +6,7 @@ export default function ModalImc() {
   return (
     <Popup
       trigger={
-        <button className="cursor-pointer px-10 mx-auto mt-10 max-w-xs flex flex-col gap-5 p-4 md:max-w-sm bg-blue-600 rounded-3xl shadow-xl text-white transition-all duration-300 hover:bg-blue-700">
+        <button className="cursor-pointer px-10 mx-auto  max-w-xs flex flex-col gap-5 p-4 md:max-w-sm bg-blue-600 rounded-3xl shadow-xl text-white transition-all duration-300 hover:bg-blue-700">
           Calcule seu IMC
         </button>
       }

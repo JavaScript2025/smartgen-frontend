@@ -62,20 +62,21 @@ function Home() {
               </span>
             </div>
 
-            <h3 className="text-xl font-semibold mt-8 md:text-2xl text-gray-800">
-              Como saber se você está no caminho certo?
-            </h3>
+            <div className="bg-blue-400 text-white w-screen -mx-[calc((100vw-100%)/2)] py-8 px-6 text-center">
+              <h3 className="text-xl font-semibold mt-8 md:text-2xl mb-2">
+                Como saber se você está no caminho certo?
+              </h3>
 
-            <p className="pb-4">
-              Uma das ferramentas mais simples e universalmente reconhecidas
-              para avaliar o estado nutricional e ter um ponto de partida nessa
-              jornada é o Índice de Massa Corporal (IMC) Ele é um cálculo rápido
-              que relaciona seu peso e sua altura.
-            </p>
-          </div>
-
-          <div className="flex justify-center">
-            <ModalImc />
+              <p className="max-w-3xl mx-auto pb-4">
+                Uma das ferramentas mais simples e universalmente reconhecidas
+                para avaliar o estado nutricional e ter um ponto de partida
+                nessa jornada é o Índice de Massa Corporal (IMC) Ele é um
+                cálculo rápido que relaciona seu peso e sua altura.
+              </p>
+              <div className="flex justify-center">
+                <ModalImc />
+              </div>
+            </div>
           </div>
         </div>
       </section>

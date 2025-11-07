@@ -15,7 +15,7 @@ function CardComoFunciona() {
                 <div className="flex flex-col gap-4">
                   <h3>01. Empresas contratam</h3>
                   <p>
-                    Contrate a TotalPass para os seus colaboradores terem acesso
+                    Contrate a SmartGen para os seus colaboradores terem acesso
                     aos serviços de bem-estar.
                   </p>
                 </div>
@@ -35,7 +35,7 @@ function CardComoFunciona() {
                   <HandshakeIcon size={32} color="#4b80fb" />
                   <h3>03. Aproveitam o benefício</h3>
                   <p>
-                    Com o plano ativo, é só acessar o app TotalPass e escolher
+                    Com o plano ativo, é só acessar o app SmartGen e escolher
                     entre as milhares de opções de academias e serviços de
                     bem-estar.
                   </p>

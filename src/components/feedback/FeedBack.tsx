@@ -7,11 +7,36 @@ type Testimonial = {
 };
 
 const testimonials: Testimonial[] = [
-  { company: "Nestlé", text: "A TotalPass é uma empresa renomada e reconhecida no mercado de benefícios corporativos. Sua expertise e compromisso em oferecer serviços de qualidade nos dá a confiança de que nossos colaboradores estão em boas mãos.", person: "Fabricio Pavarin" },
-  { company: "Bradesco", text: "O que nos fez brilhar os olhos foi a possibilidade de oferecer cuidado integral às nossas pessoas, reforçando nossa cultura de saúde e bem-estar.", person: "Thais de Moura Reis" },
-  { company: "Unimed", text: "É notório o interesse dos candidatos quando apresentamos a possibilidade de adesão.", person: "Viviane Oliveira de Araújo" },
-  { company: "Coop", text: "Os colaboradores vêm manifestando uma satisfação muito grande, não só pela rede de academias, mas também pelos serviços complementares.", person: "Valdir Kanashiro" },
-  { company: "Volkswagen", text: "Quando você fala que vai ter TotalPass, é uma demonstração clara de que, na cultura da empresa, a saúde é um fator fundamental.", person: "Fernando Ferreira" },
+  {
+    company: "Junior",
+    text: "Eu sou uma pessoa muito eclética e gostava de treinar de tudo um pouco, foi ai que conheci a smartgen, com apenas uma assinatura, eu pude desfrutar de diversos esportes como luta, natação, futebool.",
+    person: "Junior Lima",
+  },
+  {
+    company: "João Evangelista",
+    text: "O que eu mais gosto na smartgen, é que ela me traz a localização das empresas, as categorias oferecidas tudo na palma da minha mão, eu pude conhecer varias empresas perto da minha casa.",
+    person: "João Evangelista",
+  },
+  {
+    company: "Carolaine Gonçalves",
+    text: "A Smartgen é um ótimo aplicativo, eu antes pagava bem caro para poder ir nos crossfits, corridas e academia. Agora eu só pago um plano na smartgen e ja tenho acesso a tudo, sem taxas extras no final do mês.",
+    person: "Carolaine Gonçalves",
+  },
+  {
+    company: "Matheus Henrique",
+    text: "Para mim, o que resume o aplicativo da Smartgen é a praticidade, onde eu estiver eu consigo manter minha rotina de treinos, e por um preço que cabe no bolso.",
+    person: "Matheus Henrique",
+  },
+  {
+    company: "Inglyd",
+    text: "O mais me chamou atenção no Smartgen foi a quantidade de categorias, eu danço zumba e nesse app além de zumba tem varias outras danças, melhorei muito a minha saúde física e mental.",
+    person: "Inglyd",
+  },
+  {
+    company: "Felipe Emanuel",
+    text: "A smartgen é uma empresa que me ajudou muito, eu sou uma pessoa que viaja bastante mas precisava manter o foco nos treinos e manter uma vida mais saudavel.",
+    person: "Felipe Emanuel",
+  },
 ];
 
 function FeedBack() {
@@ -74,15 +99,15 @@ function FeedBack() {
     <section className="overflow-hidden px-6 py-8 md:py-10 bg-gray-200">
       <div className="container mx-auto flex flex-col gap-6">
         <div className="flex flex-col md:flex-row gap-4">
-
           {/* Bloco do título */}
           <div className="bg-blue-300 rounded-2xl px-6 py-4 md:ml-8 md:h-[250px] flex items-end">
-            <h2 className="w-52 text-3xl font-semibold">O que falam sobre nós</h2>
+            <h2 className="w-52 text-3xl font-semibold">
+              O que falam sobre nós
+            </h2>
           </div>
 
           {/* Wrapper RELATIVE pra posicionar a seta */}
           <div className="relative w-full">
-
             {/* Gradiente sutil à direita (não intercepta cliques) */}
             <div className="pointer-events-none absolute right-0 top-0 h-full w-20 bg-gradient-to-l from-gray-200 to-transparent z-10" />
 
@@ -111,7 +136,9 @@ function FeedBack() {
                 >
                   <div className="flex flex-col gap-4">
                     <header className="flex items-center gap-2">
-                      <h3 className="font-semibold uppercase">{item.company}</h3>
+                      <h3 className="font-semibold uppercase">
+                        {item.company}
+                      </h3>
                     </header>
                     <p className="text-sm">{item.text}</p>
                   </div>
@@ -139,15 +166,19 @@ function FeedBack() {
               "
             >
               <svg
-                xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" strokeWidth="2"
-                strokeLinecap="round" strokeLinejoin="round"
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
                 <polyline points="9 18 15 12 9 6"></polyline>
               </svg>
             </button>
-
           </div>
         </div>
       </div>

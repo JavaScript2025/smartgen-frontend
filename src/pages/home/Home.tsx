@@ -2,6 +2,7 @@ import CardComoFunciona from "../../components/comofunciona/CardComoFunciona";
 import FeedBack from "../../components/feedback/FeedBack";
 import CarrosselPostagens from "../../components/postagem/carrossel/CarrosselPostagens";
 import logo from '../../utils/imgs/logo/logo.svg'
+import IMCCalculator from "../../components/imc/IMCCalculator";
 
 function Home() {
   return (
@@ -29,6 +30,7 @@ function Home() {
       <CarrosselPostagens />
       <CardComoFunciona />
       <FeedBack />
+      <IMCCalculator />
     </>
   );
 }

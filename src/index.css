@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-10%); }
+}
+
+/* animação */
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+  animation-play-state: running;
+}
+
+/* pausa ao passar o mouse */
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Esconde a scrollbar sem quebrar o scroll */
+.hide-scrollbar {
+  -ms-overflow-style: none;   /* IE/Edge antigo */
+  scrollbar-width: none;      /* Firefox */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;              /* Chrome/Safari */
+}
+
+
